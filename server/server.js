@@ -2,12 +2,7 @@ const express = require("express");
 const session = require("express-session");
 const app = express();
 const port = 3000;
-const { Sequelize } = require("sequelize");
-
-const sequelize = new Sequelize("postgres://localhost:5432/fitnessDB", {
-    username: "postgres",
-    password: "password",
-});
+const { sequelize } = require("./config");
 
 app.use(
     session({
@@ -18,6 +13,8 @@ app.use(
     })
 );
 
-app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+sequelize.sync({ alter: true }).then(() => {
+    app.listen(port, () => {
+        console.log(`Server listening on port ${port}`);
+    });
 });
