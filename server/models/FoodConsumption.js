@@ -1,21 +1,30 @@
 const { DataTypes, Model } = require("sequelize");
 const { sequelize } = require("../config");
 
-class User extends Model {}
+class FoodConsumption extends Model {}
 
-User.init(
+FoodConsumption.init(
     {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
         },
 
-        username: {
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+
+        foodName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        hashedPass: {
-            type: DataTypes.STRING,
+        protein: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        calories: {
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
     },
@@ -25,4 +34,4 @@ User.init(
     }
 );
 
-module.exports = User;
+module.exports = FoodConsumption;
