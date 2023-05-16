@@ -1,9 +1,9 @@
 const { DataTypes, Model } = require("sequelize");
 const { sequelize } = require("../config");
 
-class FoodConsumption extends Model {}
+class FoodGoals extends Model {}
 
-FoodConsumption.init(
+FoodGoals.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -12,11 +12,6 @@ FoodConsumption.init(
 
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-
-        foodName: {
-            type: DataTypes.STRING,
             allowNull: false,
         },
 
@@ -36,4 +31,4 @@ FoodConsumption.init(
     }
 );
 
-module.exports = FoodConsumption;
+module.exports = FoodGoals;
