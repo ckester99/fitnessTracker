@@ -29,6 +29,11 @@ FoodConsumption.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+
+        consumptionDate: {
+            type: DataTypes.DATEONLY,
+            allowNull: false,
+        },
     },
     {
         sequelize,
